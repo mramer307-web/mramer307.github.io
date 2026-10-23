@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amer Yasser Amer | Cybersecurity Specialist & Full-Spectrum Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#ffffff',
+                            surface: '#f8fafc',
+                            card: '#ffffff',
+                            border: '#e2e8f0',
+                            pink: '#db2777',
+                            pinkLight: '#fdf2f8',
+                            dark: '#0f172a',
+                            muted: '#64748b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'Courier New', 'monospace']
+                    },
+                    animation: {
+                        'cinematic-glow': 'cinematicGlow 4s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                        'spotlight': 'spotlight 8s ease-in-out infinite alternate'
+                    },
+                    keyframes: {
+                        cinematicGlow: {
+                            '0%': { boxShadow: '0 0 20px rgba(219, 39, 119, 0.1)' },
+                            '100%': { boxShadow: '0 0 45px rgba(219, 39, 119, 0.3)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #0f172a;
+            font-family: 'Cairo', 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .clean-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .clean-card:hover {
+            border-color: #db2777;
+            box-shadow: 0 10px 30px -10px rgba(219, 39, 119, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .certificate-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 100%);
+            border: 1px solid rgba(219, 39, 119, 0.2);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #db2777;
+            box-shadow: 0 20px 40px -15px rgba(219, 39, 119, 0.25);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #db2777;
+        }
+
+        .subtle-grid {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(15, 23, 42, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.02) 1px, transparent 1px);
+        }
+
+        .animated-name span {
+            display: inline-block;
+            opacity: 0;
+            filter: blur(6px);
+            transform: translateY(0.35em);
+        }
+
+        .animated-name.is-typing span {
+            animation: name-letter-reveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: var(--letter-delay);
+        }
+
+        @keyframes name-letter-reveal {
+            to {
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animated-name span {
+                opacity: 1;
+                filter: none;
+                transform: none;
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="relative min-h-screen subtle-grid selection:bg-pink-600 selection:text-white">
+
+    <a href="https://wa.me/201552562959" target="_blank" rel="noopener noreferrer"
+       aria-label="Contact me on WhatsApp" title="Contact me on WhatsApp"
+       class="fixed bottom-6 left-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-3xl text-white shadow-lg transition-transform hover:scale-110 hover:bg-[#1ebe5d] focus:outline-none focus:ring-4 focus:ring-green-300">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-mono font-bold text-lg group-hover:bg-pink-600 transition-colors">
+                    AY
+                </div>
+                <div>
+                    <span class="text-base font-bold text-slate-900 block">Amer Yasser Amer</span>
+                    <span class="text-xs text-pink-600 font-mono tracking-wider block">Cybersecurity & Full-Stack</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="#about" class="hover:text-pink-600 transition-colors">About</a>
+                <a href="#skills" class="hover:text-pink-600 transition-colors">Skills</a>
+                <a href="#certificates" class="hover:text-pink-600 transition-colors">Certificates</a>
+                <a href="#experience" class="hover:text-pink-600 transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-pink-600 transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-pink-600 transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-pink-600 transition-colors shadow-md">
+                    Hire / Consult
+                </a>
+                <button id="mobileMenuBtn" class="md:hidden text-slate-800 text-xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-6 flex flex-col gap-4">
+            <a href="#about" class="mobile-link text-slate-700 hover:text-pink-600 font-medium">About</a>
+            <a href="#skills" class="mobile-link text-slate-700 hover:text-pink-600 font-medium">Skills</a>
+            <a href="#certificates" class="mobile-link text-slate-700 hover:text-pink-600 font-medium">Certificates</a>
+            <a href="#experience" class="mobile-link text-slate-700 hover:text-pink-600 font-medium">Experience</a>
+            <a href="#projects" class="mobile-link text-slate-700 hover:text-pink-600 font-medium">Projects</a>
+            <a href="#contact" class="mobile-link text-slate-700 hover:text-pink-600 font-medium">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="relative z-10 pt-24">
+
+        <!-- Hero Section -->
+        <section class="min-h-[85vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-50 border border-pink-200 text-pink-700 text-xs font-mono font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-pink-600 animate-ping"></span>
+                        Available for cybersecurity and web development opportunities
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-black text-slate-900 leading-tight">
+                        Hello, I'm <br>
+                        <span class="text-pink-600"><span class="sr-only">Amer Yasser Amer</span><span id="animatedName" class="animated-name" aria-hidden="true"></span></span>
+                    </h1>
+
+                    <p class="text-xl font-mono text-slate-700">
+                        &gt; Cybersecurity Specialist & Full-Spectrum Developer
+                    </p>
+
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        Cybersecurity specialist with over two years of experience in vulnerability assessment, web application penetration testing, and network security. Skilled in front-end development, mobile applications, and embedded systems (Arduino/ESP32).
+                    </p>
+
+                    <!-- Contact Quick Pills -->
+                    <div class="flex flex-wrap gap-4 pt-2 text-xs font-mono text-slate-600">
+                        <div class="px-3 py-1.5 rounded-lg bg-slate-100 flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-pink-600"></i> +20 1552562959
+                        </div>
+                        <div class="px-3 py-1.5 rounded-lg bg-slate-100 flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-pink-600"></i> mramer307@gmail.com
+                        </div>
+                        <div class="px-3 py-1.5 rounded-lg bg-slate-100 flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-pink-600"></i> Egypt (Remote/On-site)
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#certificates" class="px-7 py-3.5 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-pink-600 transition-all shadow-lg flex items-center gap-2">
+                            <i class="fa-solid fa-award"></i> Certificates
+                        </a>
+                        <a href="#contact" class="px-7 py-3.5 rounded-xl bg-pink-50 text-pink-700 border border-pink-200 font-bold text-sm hover:bg-pink-100 transition-all">
+                            Contact Me
+                        </a>
+                        <a href="AMER.pdf" target="_blank" rel="noopener noreferrer"
+                           class="px-7 py-3.5 rounded-xl border border-slate-200 bg-white text-slate-800 font-bold text-sm hover:border-pink-300 hover:text-pink-600 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> View My CV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -inset-2 rounded-3xl bg-pink-100 opacity-70 blur-xl"></div>
+                        <div class="relative rounded-2xl clean-card p-8 space-y-6 shadow-xl">
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                                <span class="font-mono text-xs text-slate-400">sec_profile.exe</span>
+                                <span class="w-3 h-3 rounded-full bg-pink-600 inline-block animate-pulse"></span>
+                            </div>
+                            <div class="text-center space-y-3">
+                                <div class="w-28 h-28 mx-auto rounded-full bg-slate-900 text-pink-500 flex items-center justify-center text-4xl shadow-inner">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <h2 class="text-xl font-bold text-slate-900">Amer Yasser Amer</h2>
+                                <p class="text-xs font-mono text-pink-600">Ethical Hacker & Developer</p>
+                            </div>
+                            <div class="space-y-2 font-mono text-xs text-slate-600 bg-slate-50 p-4 rounded-xl">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Focus:</span>
+                                    <span class="text-slate-900 font-bold">Pentesting & Web</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Experience:</span>
+                                    <span class="text-slate-900 font-bold">2+ Years Active</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">Status:</span>
+                                    <span class="text-pink-600 font-bold">Ready to Hire</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Summary Section -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-200">
+            <div class="max-w-4xl mx-auto space-y-8 text-center">
+                <div class="space-y-3">
+                    <h2 class="text-3xl font-bold text-slate-900">Professional Summary</h2>
+                    <div class="w-16 h-1 bg-pink-600 mx-auto rounded-full"></div>
+                </div>
+                <p class="text-slate-700 text-lg leading-relaxed text-justify sm:text-center">
+                    Results-driven cybersecurity specialist with over two years of hands-on experience in vulnerability assessment, web application penetration testing, and network security analysis. Broad expertise in front-end web development, mobile applications, embedded systems (Arduino/ESP32), and graphic and UI/UX design. Proven ability to deliver end-to-end technology solutions, secure web platforms, and build custom hardware-software integrations.
+                </p>
+            </div>
+        </section>
+
+        <!-- Cinematic Certificates Section -->
+        <section id="certificates" class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-3">
+                    <span class="text-xs font-mono text-pink-600 uppercase tracking-widest block">Cinematic Credentials</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Certificates & Credentials</h2>
+                    <p class="text-slate-600 text-sm max-w-xl mx-auto">
+                        Professional certifications and courses in cybersecurity, game design, and ethical hacking.
+                    </p>
+                </div>
+
+                <!-- Cinematic Grid of Certificates -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Cert 1: Cisco Ethical Hacker -->
+                    <div class="certificate-card rounded-2xl p-6 relative group overflow-hidden flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl group-hover:bg-pink-500/20 transition-all"></div>
+                        <div class="space-y-4 relative z-10">
+                            <div class="flex justify-between items-start">
+                                <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-shield-cat text-pink-500"></i>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-[10px] font-mono font-bold">
+                                    ISSUE: OCT 21, 2026
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Ethical Hacker</h3>
+                            <p class="text-xs font-mono text-pink-600 font-semibold">Cisco Networking Academy</p>
+                            <img src="cisco-ethical-hacker-certificate.png" alt="Cisco Ethical Hacker course completion certificate"
+                                 class="w-full h-48 rounded-xl border border-slate-200 bg-white object-contain">
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Formal training in ethical hacking methodologies, vulnerability scanning, wired and wireless network analysis, and application and IoT security assessment.
+                            </p>
+                        </div>
+                        <div class="pt-6 relative z-10 border-t border-slate-200 mt-6 flex items-center justify-between">
+                            <span class="text-[11px] font-mono text-slate-500">Verified Credential</span>
+                            <button onclick="openCertModal('cisco')" class="px-4 py-2 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-pink-600 transition-colors">
+                                View Certificate <i class="fa-solid fa-arrow-left mr-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2: Edraak Game Design -->
+                    <div class="certificate-card rounded-2xl p-6 relative group overflow-hidden flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl group-hover:bg-pink-500/20 transition-all"></div>
+                        <div class="space-y-4 relative z-10">
+                            <div class="flex justify-between items-start">
+                                <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-gamepad text-pink-500"></i>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-[10px] font-mono font-bold">
+                                    ISSUE: OCT 11, 2026
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">Game Design</h3>
+                            <p class="text-xs font-mono text-pink-600 font-semibold">Edraak - Fawzi Mismar</p>
+                            <iframe src="edraak-certificate.pdf#toolbar=0&amp;navpanes=0" title="Edraak Game Design Certificate"
+                                    class="w-full h-48 rounded-xl border border-slate-200 bg-white"></iframe>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Academic and theoretical foundations of video game design, including game history and methods for creating engaging interactive experiences.
+                            </p>
+                        </div>
+                        <div class="pt-6 relative z-10 border-t border-slate-200 mt-6 flex items-center justify-between">
+                            <span class="text-[11px] font-mono text-slate-500">Verified Certificate</span>
+                            <button onclick="openCertModal('edraak')" class="px-4 py-2 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-pink-600 transition-colors">
+                                View Certificate <i class="fa-solid fa-arrow-left mr-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3: TryHackMe / CTF Labs -->
+                    <div class="certificate-card rounded-2xl p-6 relative group overflow-hidden flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl group-hover:bg-pink-500/20 transition-all"></div>
+                        <div class="space-y-4 relative z-10">
+                            <div class="flex justify-between items-start">
+                                <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-terminal text-pink-500"></i>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-[10px] font-mono font-bold">
+                                    ACTIVE LABS
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">TryHackMe & CTF Labs</h3>
+                            <p class="text-xs font-mono text-pink-600 font-semibold">Offensive Security Training</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Ongoing hands-on training in offensive security, web security, network analysis, and Capture The Flag challenges.
+                            </p>
+                        </div>
+                        <div class="pt-6 relative z-10 border-t border-slate-200 mt-6 flex items-center justify-between">
+                            <span class="text-[11px] font-mono text-slate-500">Practical Labs</span>
+                            <button onclick="openCertModal('thm')" class="px-4 py-2 rounded-lg bg-slate-900 text-white text-xs font-bold hover:bg-pink-600 transition-colors">
+                                Training Details <i class="fa-solid fa-arrow-left mr-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-200">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-3">
+                    <h2 class="text-3xl font-bold text-slate-900">Technical Skills</h2>
+                    <p class="text-slate-600 text-sm max-w-xl mx-auto">A comprehensive overview of technical skills and areas of expertise.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Skill Group 1 -->
+                    <div class="clean-card p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900">Cybersecurity & Operations</h3>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Penetration Testing, Web Application Security, Network Security Analysis, Vulnerability Assessment, Threat Analysis, CTF Challenges.
+                        </p>
+                    </div>
+
+                    <!-- Skill Group 2 -->
+                    <div class="clean-card p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-terminal"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900">Security Environments & Tools</h3>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Kali Linux, BlackArch Linux, Nmap, GoBuster, JoomScan, Sublist3r, CloudFail, BeEF, Metasploit, Wireshark, Burp Suite.
+                        </p>
+                    </div>
+
+                    <!-- Skill Group 3 -->
+                    <div class="clean-card p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900">Programming & Scripting</h3>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Python, C, C++, Java, Go, PHP, Dart, JavaScript, Shell Scripting (Bash).
+                        </p>
+                    </div>
+
+                    <!-- Skill Group 4 -->
+                    <div class="clean-card p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900">Web & Mobile Development</h3>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            HTML5, CSS3, JavaScript, React.js, Bootstrap, Flutter, Responsive Design, REST APIs.
+                        </p>
+                    </div>
+
+                    <!-- Skill Group 5 -->
+                    <div class="clean-card p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900">Embedded Systems & IoT</h3>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Arduino (Uno/Mega), ESP32 Microcontrollers, Circuit Wiring, Sensor Integration, C++ Microcontroller Programming, OpenSCAD 3D Prototyping.
+                        </p>
+                    </div>
+
+                    <!-- Skill Group 6 -->
+                    <div class="clean-card p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-palette"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900">Design & User Experience</h3>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Adobe Photoshop, Adobe Illustrator, Affinity Designer, Figma, Graphic Design, Branding, Prototyping.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto space-y-12">
+                <div class="text-center space-y-3">
+                    <h2 class="text-3xl font-bold text-slate-900">Professional Experience</h2>
+                    <p class="text-slate-600 text-sm">Career history and independent freelance work.</p>
+                </div>
+
+                <div class="clean-card p-8 rounded-2xl space-y-6 relative border-l-4 border-l-pink-600">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900">Cybersecurity & Software Development Specialist</h3>
+                            <p class="text-xs font-mono text-pink-600 font-semibold">Freelance / Independent</p>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-pink-50 text-pink-700 text-xs font-mono font-bold">
+                            October 2024 - Present
+                        </span>
+                    </div>
+
+                    <ul class="space-y-3 text-slate-700 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-pink-600 mt-1"></i>
+                            <span>Conducted comprehensive web application penetration testing and vulnerability scans using industry-standard security tools (Nmap, GoBuster, Burp Suite) to identify system risks and propose remediation strategies.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-pink-600 mt-1"></i>
+                            <span>Developed and deployed responsive front-end web applications using HTML5, CSS3, JavaScript, React.js, and Bootstrap, ensuring seamless user experiences and secure coding practices.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-pink-600 mt-1"></i>
+                            <span>Engineered mobile application interfaces using Flutter and Dart, focusing on optimized UI/UX design and performance.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-pink-600 mt-1"></i>
+                            <span>Programmed and assembled custom embedded hardware projects (Arduino/ESP32) involving sensors, microcontrollers, and custom 3D enclosure models using OpenSCAD.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-pink-600 mt-1"></i>
+                            <span>Authored custom automation scripts in Python and Shell to streamline security testing tasks and routine system operations.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-pink-600 mt-1"></i>
+                            <span>Created digital branding assets and UI/UX prototypes for client platforms using Figma, Adobe Illustrator, and Photoshop.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Projects Section -->
+        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-200">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-3">
+                    <h2 class="text-3xl font-bold text-slate-900">Featured Projects</h2>
+                    <p class="text-slate-600 text-sm max-w-xl mx-auto">Selected work across security, web development, and hardware.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Project 1 -->
+                    <div class="clean-card p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-bug-slash"></i>
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Cybersecurity</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Web Application Penetration Testing & Vulnerability Assessment</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Performed end-to-end security audits for web platforms, identifying misconfigurations and potential exploit vectors; delivered actionable remediation reports to secure system endpoints.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">Burp Suite</span>
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">Nmap</span>
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">Remediation</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="clean-card p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-window-maximize"></i>
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Frontend & Mobile</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Responsive Front-End Platforms & UI Prototyping</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Designed and developed fully functional web and mobile interfaces using React.js and Flutter, emphasizing clean architecture, accessibility, and modern UI/UX principles.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">React.js</span>
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">Flutter</span>
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">Figma</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="clean-card p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-microchip"></i>
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">IoT & Hardware</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Custom Embedded Audio & Sensor Processing Unit</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Designed circuit logic, programmed microcontrollers in C++, and built 3D-printed custom enclosures (OpenSCAD) for dedicated audio playback hardware.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">ESP32 / Arduino</span>
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">C++</span>
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">OpenSCAD</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="clean-card p-6 rounded-2xl space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="w-10 h-10 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-terminal"></i>
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Automation</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Security Scripting & Automation Tools</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Built Python and Bash utility scripts to automate network enumeration, directory brute-forcing, and security workflows.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">Python</span>
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">Bash Scripting</span>
+                            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded">Automation</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-3">
+                    <h2 class="text-3xl font-bold text-slate-900">Contact Me</h2>
+                    <p class="text-slate-600 text-sm max-w-xl mx-auto">For inquiries, job opportunities, or cybersecurity consulting.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Info Cards -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="clean-card p-6 rounded-2xl space-y-2 border-l-4 border-l-pink-600">
+                            <span class="text-xs font-mono text-pink-600 uppercase">Email</span>
+                            <a href="mailto:mramer307@gmail.com" class="text-lg font-bold text-slate-900 hover:text-pink-600 transition-colors block">
+                                mramer307@gmail.com
+                            </a>
+                            <p class="text-xs text-slate-500">For direct contact and a quick response.</p>
+                        </div>
+
+                        <div class="clean-card p-6 rounded-2xl space-y-2 border-l-4 border-l-slate-900">
+                            <span class="text-xs font-mono text-slate-600 uppercase">Phone Number</span>
+                            <div class="text-lg font-bold text-slate-900">01552562959</div>
+                            <p class="text-xs text-slate-500">Available for calls and WhatsApp messages.</p>
+                        </div>
+
+                        <div class="clean-card p-6 rounded-2xl space-y-2">
+                            <span class="text-xs font-mono text-slate-600 uppercase">Location</span>
+                            <div class="text-lg font-bold text-slate-900">Arab Republic of Egypt</div>
+                            <p class="text-xs text-slate-500">Available for remote and on-site work.</p>
+                        </div>
+                    </div>
+
+          
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 px-4 text-center text-xs font-mono">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                &copy; <span id="year"></span> Amer Yasser Amer
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cinematic Certificate Modal -->
+    <div id="certModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-6 relative border border-pink-200 shadow-2xl animate-float">
+            <button onclick="closeCertModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-900 text-xl font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="modalContent" class="space-y-4">
+                <!-- Dynamic Modal Content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const animatedName = document.getElementById('animatedName');
+        const nameText = 'Amer Yasser Amer';
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        if (prefersReducedMotion.matches) {
+            animatedName.textContent = nameText;
+        } else {
+            const characters = Array.from(nameText);
+            const nameFragment = document.createDocumentFragment();
+
+            characters.forEach((character, index) => {
+                const letter = document.createElement('span');
+                letter.textContent = character === ' ' ? '\u00a0' : character;
+                letter.style.setProperty('--letter-delay', `${index * 110}ms`);
+                nameFragment.appendChild(letter);
+            });
+
+            animatedName.appendChild(nameFragment);
+
+            const animationDuration = characters.length * 110 + 450;
+            const restartNameAnimation = () => {
+                animatedName.classList.remove('is-typing');
+                void animatedName.offsetWidth;
+                animatedName.classList.add('is-typing');
+                window.setTimeout(restartNameAnimation, animationDuration + 2200);
+            };
+
+            window.setTimeout(restartNameAnimation, 500);
+        }
+
+        /* Mobile Menu Toggle */
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        /* Certificate Modal Logic */
+        const certModal = document.getElementById('certModal');
+        const modalContent = document.getElementById('modalContent');
+
+        const certData = {
+            cisco: {
+                title: "Ethical Hacker - Cisco Networking Academy",
+                date: "Issued on: Oct 21, 2026",
+                issuer: "Cisco Networking Academy",
+                image: "cisco-ethical-hacker-certificate.png",
+                desc: "Successfully achieved student level credential for completing the Ethical Hacker course. Proficient in explaining methodological ethical hacking, penetration testing preliminary documents, vulnerability scanning, social engineering attacks, wired/wireless network vulnerabilities, application-based vulnerabilities, cloud, mobile, and IoT security vulnerabilities, post-exploitation activities, and creating penetration testing reports."
+            },
+            edraak: {
+                title: "Game Design Certificate - Edraak",
+                date: "Issued on: 11/10/2026",
+                issuer: "Edraak - Fawzi Mismar",
+                file: "edraak-certificate.pdf",
+                desc: "Successfully completed Game Design course. This course provides an academic and theoretical basis to allow the participant to understand video games, their history, and how they're designed."
+            },
+            thm: {
+                title: "TryHackMe & CTF Security Labs",
+                date: "Continuous Active Training",
+                issuer: "TryHackMe / Offensive Security",
+                desc: "Active participant in offensive security, web security, and network analysis scenarios. Practical hands-on experience in ethical hacking tools and methodologies, Burp Suite, Nmap, and vulnerability enumeration."
+            }
+        };
+
+        function openCertModal(type) {
+            const data = certData[type];
+            if (!data) return;
+
+            modalContent.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900">${data.title}</h3>
+                        <span class="text-xs font-mono text-pink-600">${data.date}</span>
+                    </div>
+                </div>
+                ${data.file ? `
+                <div class="space-y-2">
+                    <iframe src="${data.file}#toolbar=0&amp;navpanes=0" title="${data.title}"
+                            class="w-full h-[60vh] rounded-xl border border-slate-200 bg-white"></iframe>
+                    <a href="${data.file}" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex text-sm font-bold text-pink-600 hover:text-pink-700">
+                        Open Certificate in a New Tab
+                    </a>
+                </div>
+                ` : ''}
+                ${data.image ? `
+                <div class="space-y-2">
+                    <img src="${data.image}" alt="${data.title}" class="w-full max-h-[60vh] rounded-xl border border-slate-200 bg-white object-contain">
+                    <a href="${data.image}" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex text-sm font-bold text-pink-600 hover:text-pink-700">
+                        Open Certificate in a New Tab
+                    </a>
+                </div>
+                ` : ''}
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-700 leading-relaxed">
+                    ${data.desc}
+                </div>
+                <div class="flex justify-between items-center pt-2">
+                    <span class="text-xs font-mono text-slate-400">Issuer: ${data.issuer}</span>
+                    <button onclick="closeCertModal()" class="px-5 py-2 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-pink-600 transition-colors">
+                        Close
+                    </button>
+                </div>
+            `;
+            certModal.classList.remove('hidden');
+        }
+
+        function closeCertModal() {
+            certModal.classList.add('hidden');
+        }
+
+        window.addEventListener('click', (e) => {
+            if (e.target === certModal) closeCertModal();
+        });
+
+    </script>
+</body>
+</html>
